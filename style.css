@@ -1,0 +1,86 @@
+html {
+    margin: 0;
+    height: 100%;
+    display: flex;
+}
+
+body {
+    background-image: url("./background/pink_dates_background.jpg");
+    background-attachment: fixed;
+    margin: auto;
+    background-color: #fff;
+    width: 75%;
+    height: 100%;
+}
+
+#logo {
+    font-weight: 700;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px 10px;
+}
+
+header {
+    background-color: hotpink;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    margin-top: 0;
+    padding-top: 21.44px;
+}
+
+ul {
+    display: flex;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 6px;
+    background-color: rgb(255, 50, 94);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    min-width: 75px;
+    text-align: center;
+    margin: 0px 10px;
+}
+
+ul li:hover {
+    background-color: brown;
+}
+
+ul a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+#main-container {
+    height: 100%;
+    background-color: rgb(255, 218, 249);
+}
+
+.content {
+    width:95%;
+    margin: auto;
+    margin-top: auto;
+}
+
+h3 {
+    margin-top: 0;
+    padding-top: 18.72px;
+}
+
+
+footer {
+    background-color: rgb(255, 218, 249);
+}
+
+#incorrect {
+    color: crimson;
+}
+
+#not-in-use {
+    color: rgb(91, 91, 91);
+}
