@@ -14,13 +14,8 @@
             <h1>Login</h1>
 
             <article>
-                <form method="post">
-                    Username:<br><input type="text" name="username"><br>
-                    Password:<br><input type="password" name="password"><br>
-                    <input type="submit" value="Login">
-                </form>
+               <?php include "view_login.php"?>
                 <p>If you don't have an account?<a href="../register/index.php">Register here!</a></p>
-                <?php include "./datacheck.php"?>
             </article>
         </div>
     </section>
