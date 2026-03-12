@@ -18,6 +18,7 @@
                 Salary:     <br><input type="number" name="salary"><br>
                 <label for="preference">Choose a preference:</label><br>
                 <select name="preference" id="preference">
+                    <option value = ""> --Choose preference--</option>
                     <option value="1">Men</option>
                     <option value="2">Women</option>
                     <option value="3">Both</option>

@@ -5,7 +5,9 @@
     <?php include "../phpvault/menu.php"?>
     <section id="main-container">
         <div class="content">
-            <h1>Your profile</h1>
+            <h1>Welcome to your profile, <?php print($_SESSION['username'])?></h1>
+            <a href="./edit_account.php"> Edit profile</a>
+            <a href="./edit_password.php">Change Password</a>
 
             <article>
 
@@ -27,7 +29,6 @@
                 <label for="no-likes">Don't Sort By Likes!</label>
                 <br><br><input type="submit" value="Apply!"><br>
             </form>
-            <?php include "../Chat/chat.php"?>
 
             </article>
         </div>
