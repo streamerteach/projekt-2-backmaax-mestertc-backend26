@@ -24,6 +24,6 @@ if (! empty($_REQUEST['password'])) {
 
 
     else {
-        print("Wrong username or password");
+        print("Server Error");
     }
 }

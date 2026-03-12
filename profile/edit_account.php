@@ -26,6 +26,9 @@
                 Bio:        <br><input type="text" name="bio" value="<?=$row['bio']?>"><br>
                 Provide Password to edit profile:   <br><input type="password" name="password"><br><br>
                                 <input type="submit" value="Submit changes">
-            </form>
+                                <?php if(!empty($_REQUEST['password'])){
+                                    updateAccount($conn, $row);
+                                }?>
+    </form>
 </section>
 </body>
