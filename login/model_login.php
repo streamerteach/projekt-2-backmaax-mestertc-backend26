@@ -15,7 +15,7 @@ if (! empty($_REQUEST['password'])) {
             print("<p> Logging in </p>");
             $_SESSION['userid'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            header("Refresh:2; url=../home");
+            header("Refresh:2; url=../home/");
         }
         else{
             print( "Wrong Username or password");

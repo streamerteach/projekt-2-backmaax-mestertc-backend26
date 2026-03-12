@@ -33,7 +33,7 @@
 
         <?php
         if (isset($_SESSION['username'])) {
-            include "../phpvault/ad-structure.php"
+            include "../phpvault/ad-structure.php";
         }
         ?>
         <footer class="content">
