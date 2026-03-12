@@ -14,7 +14,16 @@
             <h1>Login</h1>
 
             <article>
-               <?php include "view_login.php"?>
+             
+        <form action="./index.php" method="POST">
+            <label for ="username">Username:</label><br>
+            <input type="text" name="username"><br>
+            <label for ="password">Password:</label><br>
+            <input type="password" name="password"><br><br>
+            <input type="submit" value="Login">
+        </form>
+
+    <?php include "model_login.php"?>
                 <p>If you don't have an account?<a href="../register/index.php">Register here!</a></p>
             </article>
         </div>
