@@ -6,6 +6,7 @@
     <section id="main-container">
         <div class="content">
             <h1>Welcome to your profile, <?php print($_SESSION['username'])?></h1>
+            <h3>userid: <?= $_SESSION['userid']?></h3>
             <a href="./edit_account.php"> Edit profile</a>
             <a href="./edit_password.php">Change Password</a>
 
