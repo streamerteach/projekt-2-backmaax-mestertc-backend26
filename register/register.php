@@ -19,7 +19,7 @@ if(!empty($_REQUEST['form'])){
         $sql = "INSERT INTO `profiles` (`id`, `username`, `realname`, `zipcode`, `bio`, `salary`, `preference`, `email`, `likes`, `role`, `passhash`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->execute([$username, "$firstname $lastname", $zipcode, $bio, $salary, $preference, $email, 0, 1, password_hash($pwd, PASSWORD_DEFAULT)]);
-        print("<p id=\"incorrect\">Your account was successfully created, we've sent your<br>randomly generated password to the given e-mail address!</p>");
+        print("<p>Your account was successfully created, we've sent your<br>randomly generated password to the given e-mail address!</p>");
     } else {
         print("<p id=\"incorrect\">Something went wrong! Please check that all fields above have been filled!</p>");
     }  

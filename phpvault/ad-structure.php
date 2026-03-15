@@ -1,3 +1,6 @@
+<?php include "sort-adds.php"?>
+
+
 <div id="addfield">
     <div class="subfield">
         <div class="adds" id="add-1">
