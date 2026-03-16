@@ -15,6 +15,7 @@ $row = $result->fetch();
 function updateAccount($conn, $row){
 
     $realname = test_input($_REQUEST['realname']);
+    $gender = test_input($_REQUEST['gender']);
     $email = test_input($_REQUEST['email']);
     $zipcode = test_input($_REQUEST['zipcode']);
     $salary = test_input($_REQUEST['salary']);
@@ -23,9 +24,9 @@ function updateAccount($conn, $row){
 
 
     if(password_verify(test_input($_REQUEST['password']), $row['passhash'])){
-    $sql = "UPDATE `profiles` SET `realname` = ?, `zipcode` = ?, `bio` = ?, `salary` = ?, `preference` = ?, `email` = ? WHERE `profiles`.`id` = ?";
+    $sql = "UPDATE `profiles` SET `realname` = ?, `gender` = ?, `zipcode` = ?, `bio` = ?, `salary` = ?, `preference` = ?, `email` = ? WHERE `profiles`.`id` = ?";
     $stmt= $conn-> prepare($sql);
-    $stmt -> execute([$realname, $zipcode, $bio, $salary, $preference, $email, $_SESSION['userid']]);
+    $stmt -> execute([$realname, $gender, $zipcode, $bio, $salary, $preference, $email, $_SESSION['userid']]);
     print("Your information was succesfully edited");
     header("Refresh:3; url=./index.php");
     }

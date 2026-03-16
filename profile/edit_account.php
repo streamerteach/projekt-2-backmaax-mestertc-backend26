@@ -12,6 +12,12 @@
     <form action="./edit_account.php" method="POST">
                 <input type="hidden" name="form" value="submitted">
                 Real Name: <br><input type="text" name="realname" value="<?=$row['realname']?>"><br>
+                Gender: <br><select name="gender" id="gender">
+                    <option value = ""> --Gender--</option>
+                    <option value="1">Man</option>
+                    <option value="2">Woman</option>
+                    <option value="3">Other</option>
+                    </select><br>
                 E-mail:     <br><input type="email" name="email" value="<?=$row['email']?>"><br>
                 Zipcode:    <br><input type="zipcode" name="zipcode" value="<?=$row['zipcode']?>"><br>
                 Salary:     <br><input type="number" name="salary" value="<?=$row['salary']?>"><br>
