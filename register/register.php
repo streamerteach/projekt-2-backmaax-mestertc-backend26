@@ -5,20 +5,22 @@ if(!empty($_REQUEST['form'])){
     $username = test_input($_REQUEST['username']);
     $firstname = test_input($_REQUEST['firstname']);
     $lastname = test_input($_REQUEST['lastname']);
+    $gender = test_input($_REQUEST['gender']);
     $email = test_input($_REQUEST['email']);
     $zipcode = test_input($_REQUEST['zipcode']);
     $salary = test_input($_REQUEST['salary']);
     $preference = test_input($_REQUEST['preference']);
     $bio = test_input($_REQUEST['bio']);
-    $pwd = generate_rand_pwd(8);
-    $msg= mail_pwd($username, $pwd,$email);
+    $pwd = test_input($_REQUEST['password']);
+    //$pwd = generate_rand_pwd(8);
+    //$msg= mail_pwd($username, $pwd,$email);
     // print($msg); //for testing purpose
     
-    if (!empty($username) and !empty($firstname) and !empty($lastname) and !empty($email) 
+    if (!empty($username) and !empty($firstname) and !empty($gender) and !empty($lastname) and !empty($email) 
         and !empty($zipcode) and !empty($salary) and !empty($preference) and !empty($bio) and !empty($pwd)) {
-        $sql = "INSERT INTO `profiles` (`id`, `username`, `realname`, `zipcode`, `bio`, `salary`, `preference`, `email`, `likes`, `role`, `passhash`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO `profiles` (`id`, `username`, `realname`, `gender`, `zipcode`, `bio`, `salary`, `preference`, `email`, `likes`, `role`, `passhash`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$username, "$firstname $lastname", $zipcode, $bio, $salary, $preference, $email, 0, 1, password_hash($pwd, PASSWORD_DEFAULT)]);
+        $stmt->execute([$username, "$firstname $lastname", $gender, $zipcode, $bio, $salary, $preference, $email, 0, 1, password_hash($pwd, PASSWORD_DEFAULT)]);
         print("<p>Your account was successfully created, we've sent your<br>randomly generated password to the given e-mail address!</p>");
     } else {
         print("<p id=\"incorrect\">Something went wrong! Please check that all fields above have been filled!</p>");
