@@ -8,11 +8,16 @@ $sql = "SELECT sender_id, username, comment, receiver_id FROM profiles INNER JOI
 
 $stmt = $conn -> prepare($sql);
 $stmt -> execute([$userid]);
-$row = $stmt -> fetch();
+$rows = $stmt -> fetchAll();
 
+if(!empty($_POST['comment'])){
+$comment = $_POST['comment'];
+$receiver = $_POST['receiver_id'];
+$sender = $_SESSION['user_id'];
 
+$sql = "INSERT INTO comments (id,sender_id, receiver_id, comment)
+        VALUES (null, ?, ?, ?)";
 
-if(!empty($_POST['reply'])){
-
-    
+$stmt = $conn->prepare($sql);
+$stmt->execute([$sender, $receiver, $comment]);
 }
