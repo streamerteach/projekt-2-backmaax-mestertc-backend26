@@ -9,6 +9,7 @@
             <h3>userid: <?= $_SESSION['userid']?></h3>
             <a href="./edit_account.php"> Edit profile</a>
             <a href="./edit_password.php">Change Password</a>
+            <a href="./remove_account.php"> Remove Account</a>
 
             <article>
 
