@@ -7,18 +7,51 @@
         <div class="content">
             <h1>Welcome to your profile, <?php print($_SESSION['username'])?></h1>
             <h3>userid: <?= $_SESSION['userid']?></h3>
-            <a href="./edit_account.php"> Edit profile</a>
-            <a href="./edit_password.php">Change Password</a>
-            <a href="./remove_account.php"> Remove Account</a>
+            <div class="profile-container">
+
+    <!-- Current Profile Picture -->
+    <div class="current-pfp">
+    <h3>Current Profilepicture</h3>
+        <?php
+        $dir = $_SESSION['path'] . "/current/";
+        $files = array_diff(scandir($dir), ['.', '..']);
+
+        if (empty($files)) {
+            echo '<img src="../Fileupload/default.jpeg">';
+        } else {
+            $file = array_values($files)[0];
+            echo '<img src="' . $dir . $file . '">';
+        }
+        ?>
+    </div>
+
+    <!-- Old Profile Pictures Grid -->
+    <div class="old-pfp-grid">
+        <?php
+        $oldDir = $_SESSION['path'] . "/old/";
+        $oldFiles = array_diff(scandir($oldDir), ['.', '..']);
+        $oldFiles = array_slice($oldFiles, -9);
+
+        foreach ($oldFiles as $file) {
+            echo '<a href="?restore=' . urlencode($file) . '">';
+            echo '<img src="' . $oldDir . $file . '">';
+            echo '</a>';
+        }
+        ?>
+    </div>
 
             <article>
-
+                <?php include "../Fileupload/pictures.php"?>
                 <form action="./" method="post" enctype="multipart/form-data">
                     Select image to upload:
                     <input type="file" name="fileToUpload" id="fileToUpload">
                     <input type="submit" value="Upload Image" name="submit">
                 </form>
-            <?php include "../Fileupload/pictures.php"?>
+        <ul>
+            <a class="editButton"href="./edit_account.php"> <li>Edit profile</li></a>
+            <a class="editButton"href="./edit_password.php"><li>Change Password</li></a>
+            <a class="editButton"href="./remove_account.php"><li> Remove Account</li></a>
+        </ul>   
             <h3>Sort Adds By:</h3>
             <form method="POST">
                 <h4>Salary</h4>
@@ -34,10 +67,6 @@
 
             </article>
 
-           <div id="comments">
-                <h2>Comments</h2>
-                <?php// include "../Chat/view_comments.php"?>
-            </div>
         </div>
 </body>
 

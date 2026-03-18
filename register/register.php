@@ -48,7 +48,7 @@ function mail_pwd($username,$pwd,$email){
 function makeProfileDir($username){
     $rnd = generate_rand_pwd(5);
     $username = $username.$rnd;
-    $path = "../Fileupload/$username";
+    $path = "./Fileupload/$username";
     mkdir($path);
     mkdir("$path/current");
     mkdir("$path/old");
