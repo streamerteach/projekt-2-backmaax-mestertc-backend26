@@ -20,7 +20,7 @@
                 </form>
             <?php include "../Fileupload/pictures.php"?>
             <h3>Sort Adds By:</h3>
-            <form>
+            <form method="POST">
                 <h4>Salary</h4>
                 Max: <br><input type="number" name="max-salary"><br>
                 Min: <br><input type="number" name="min-salary">
@@ -29,7 +29,7 @@
                 <label for="likes">Sort By Likes!</label>
                 <br><input type="radio" id="no-likes" name="by-likes" value="Don't Sort By Likes!">
                 <label for="no-likes">Don't Sort By Likes!</label>
-                <br><br><input type="submit" value="Apply!"><br>
+                <br><br><input type="submit" name="sorting" value="Apply!"><br>
             </form>
 
             </article>

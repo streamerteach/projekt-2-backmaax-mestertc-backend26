@@ -10,11 +10,41 @@ $mygender = $data['gender'];
 $mypreference = $data['preference'];
 
 if ($mypreference == 3) {
-    $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ?";
-    $baseset = "SELECT * FROM profiles WHERE preference = ? LIMIT ?, ?";
+    if (isset($_POST['sorting'])) {
+        $maxSalary = isset($_POST['max-salary']) ? (int)$_POST['max-salary'] : 0;
+        $minSalary = isset($_POST['min-salary']) ? (int)$_POST['min-salary'] : 1000000;
+        $byLikes   = isset($_POST['by-likes']) ? $_POST['by-likes'] : null;
+        
+        if (isset($byLikes)) {
+            $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ? AND $minSalary < salary < $maxSalary";
+            $baseset = "SELECT * FROM profiles WHERE preference = ? AND $minSalary < salary < $maxSalary LIMIT ?, ? ORDER BY likes DESC";
+        } else {
+            $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ? AND $minSalary < salary < $maxSalary";
+            $baseset = "SELECT * FROM profiles WHERE preference = ? AND $minSalary < salary < $maxSalary LIMIT ?, ?";
+        }
+    } else {
+        $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ?";
+        $baseset = "SELECT * FROM profiles WHERE preference = ? LIMIT ?, ?";
+    }
+    
 } else {
-    $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ? OR preference = ? AND gender = ?";
-    $baseset = "SELECT * FROM profiles WHERE preference = ? OR preference = ? AND gender = ? LIMIT ?, ?";
+
+    if (isset($_POST['sorting'])) {
+        $maxSalary = isset($_POST['max-salary']) ? (int)$_POST['max-salary'] : 0;
+        $minSalary = isset($_POST['min-salary']) ? (int)$_POST['min-salary'] : 1000000;
+        $byLikes   = isset($_POST['by-likes']) ? $_POST['by-likes'] : null;
+        
+        if (isset($byLikes)) {
+            $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ? OR preference = ? AND gender = ? AND $minSalary < salary < $maxSalary";
+            $baseset = "SELECT * FROM profiles WHERE preference = ? OR preference = ? AND gender = ? AND $minSalary < salary < $maxSalary LIMIT ?, ? ORDER BY likes DESC";
+        } else {
+            $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ? OR preference = ? AND gender = ? AND $minSalary < salary < $maxSalary";
+            $baseset = "SELECT * FROM profiles WHERE preference = ? OR preference = ? AND gender = ? AND $minSalary < salary < $maxSalary LIMIT ?, ?";
+        }
+    } else {
+        $amountcheck = "SELECT COUNT(*) AS total FROM profiles WHERE preference = ? OR preference = ? AND gender = ?";
+        $baseset = "SELECT * FROM profiles WHERE preference = ? OR preference = ? AND gender = ? LIMIT ?, ?";
+    }
 }
 
 
