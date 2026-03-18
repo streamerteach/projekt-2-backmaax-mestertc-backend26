@@ -1,4 +1,9 @@
 <?php
+if(!isset($_SESSION['userid'])){
+  die("Not logged in");
+  header("Refresh:1; url=../login/");
+}
+
 //Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors','1'); //NOT IN PRODUCTION
