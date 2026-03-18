@@ -34,9 +34,9 @@
 
             </article>
 
-            <div id="comments">
+           <div id="comments">
                 <h2>Comments</h2>
-                <?php include "../Chat/view_comments.php"?>
+                <?php// include "../Chat/view_comments.php"?>
             </div>
         </div>
 </body>

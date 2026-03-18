@@ -1,5 +1,5 @@
 
-let currentChatId = "0";
+let currentChatId = null;
 
 function startChat(recieverId){
     console.log("started chat");
@@ -43,8 +43,5 @@ function loadMessages() {
     .then(data => {
         document.getElementById("messages").innerHTML = data;
     });
+    setInterval(loadMessages, 5000);
 }
-
-
-setInterval(loadMessages, 5000);
-

@@ -5,6 +5,7 @@
 <?php include "../phpvault/visitoramount.php"?>
 
 <body>
+  <script src="../Script/chat2.js"></script>
     <?php include "../phpvault/menu.php"?>
     
     <section id="main-container">
@@ -36,6 +37,17 @@
             include "../phpvault/ad-structure.php";
         }
         ?>
+        <div id="chatSidebar">
+            <h3>Your Chats</h3>
+        </div>
+        <div id="chatPopup">
+            <div id="chatHeader">Chat <span style="float:right;cursor:pointer;" onclick="closeChat()">X</span></div>
+            <div id="chatMessages"></div>
+            <div id="chatInput">
+            <input type="text" id="msgInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</div>
         <footer class="content">
             <?php 
             if (isset($_SESSION['username'])) {
