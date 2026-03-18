@@ -1,18 +1,18 @@
 <?php include "likes.php"?>
 <?php include "sort-adds.php"?>
+<?php include "pagination.php"?>
 
 <div id="addfield">
 
     <?php
     if (!empty($baseset)) {
-        include "pagination.php";
+        
         foreach ($profiles as $profile) {
-
             if (!isset($_SESSION['liked']) || !is_array($_SESSION['liked'])) {
                 $_SESSION['liked'][$profile['id']] = false;
             }
 
-            print($_SESSION['liked'][$profile['id']]);
+            
 
             if (isset($_POST['likeButton']) and !$_SESSION['liked'][$profile['id']]) {
                 AddLike($profile['id'], $conn);
