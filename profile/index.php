@@ -32,6 +32,11 @@
             </form>
 
             </article>
+
+            <div id="comments">
+                <h2>Comments</h2>
+                <?php include "../Chat/view_comments.php"?>
+            </div>
         </div>
 </body>
 

@@ -13,6 +13,12 @@
                 Username:   <br><input type="text" name="username"><br>
                 First Name: <br><input type="text" name="firstname"><br>
                 Last Name: <br><input type="text" name="lastname"><br>
+                Gender: <br><select name="gender" id="gender">
+                    <option value = ""> --Gender--</option>
+                    <option value="1">Man</option>
+                    <option value="2">Woman</option>
+                    <option value="3">Other</option>
+                </select><br>
                 E-mail:     <br><input type="email" name="email"><br>
                 Zipcode:    <br><input type="zipcode" name="zipcode"><br>
                 Salary:     <br><input type="number" name="salary"><br>
@@ -24,7 +30,8 @@
                     <option value="3">Both</option>
                     <option value="4">Other</option>
                 </select><br> 
-                Bio:        <br><input type="text" name="bio"><br><br>
+                Bio:        <br><input type="text" name="bio"><br>
+                Password: <br><input type="password" name="password"><br><br>
                                 <input type="submit" value="Register">
             </form>
             <?php include "./register.php" ?>
