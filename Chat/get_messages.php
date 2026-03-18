@@ -15,9 +15,9 @@ $sql = "SELECT messages.*, profiles.username
 $stmt = $conn ->prepare($sql);
 $stmt -> execute([$chat_id]);
 
-while ($row = $stmt->fetch()) {
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-    $isMe = ($row['user_id'] == $current_user);
+    $isMe = ($row['user_id'] == $user);
     $class = $isMe ? "message-me" : "message-other";
 
     echo "<div class='$class'>

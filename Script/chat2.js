@@ -5,7 +5,7 @@ function startChat(targetUserId) {
     fetch("../Chat/start_chat.php", {
         method:"POST",
         headers:{"Content-Type":"application/x-www-form-urlencoded"},
-        body:"target_user_id=" + targetUserId
+        body:"user2=" + encodeURIComponent(targetUserId)
     })
     .then(res => res.text())
     .then(chatId => {
