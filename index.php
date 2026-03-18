@@ -48,6 +48,7 @@ $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 <h3><?php include "./phpvault/landingpage.php"?></h3>
                 <p><?php include "./phpvault/functionalcookie.php"?></p>
                 <a href="./rapport/rapport.php">Projektrapport</a>
+                <a href="./rapport/rapport2.php">Projektrapport 2</a>
             </div>
 
             <div id="cookie-choice" class="item">
