@@ -13,7 +13,7 @@ $rows = $stmt -> fetchAll();
 if(!empty($_POST['comment'])){
 $comment = $_POST['comment'];
 $receiver = $_POST['receiver_id'];
-$sender = $_SESSION['user_id'];
+$sender = $_SESSION['userid'];
 
 $sql = "INSERT INTO comments (id,sender_id, receiver_id, comment)
         VALUES (null, ?, ?, ?)";

@@ -1,5 +1,5 @@
 <?php include "sort-adds.php"?>
-
+    
 
 <div id="addfield">
     
@@ -8,7 +8,7 @@
         <h1>John Doe</h1>
         <p class="title">CEO & Founder, Example</p>
         <p>Harvard University</p>
-        <p><button>Contact</button></p>
+        <p><button onclick="startChat(<?=$target?>)">Contact</button></p>
     </div>
     <div class="adds" id="add-2">
         <a class="add"><img></a>
