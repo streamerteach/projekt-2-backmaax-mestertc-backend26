@@ -50,7 +50,7 @@
         <button onclick="sendMessage()">Send</button>
     </div>
 </div>
-        <footer class="content">
+        <footer class="">
             <?php 
             if (isset($_SESSION['username'])) {
                 print(getVisitorAmount()." people are using our site!");
