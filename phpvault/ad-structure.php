@@ -1,4 +1,4 @@
-<?php include "pagination.php"?>
+
 <?php include "sort-adds.php"?>
 
 <div id="addfield">
@@ -22,8 +22,15 @@
     
 </div>
 <div id="page-turner">
-    <button class="turner-element"><</button>
-    <div id="page-number">
-    </div>
-    <button class="turner-element">></button>
+    <?php if ($page > 1) {?>
+        <a href="?page=<?php print($page - 1);?>"><</a>
+    <?php } ?>
+
+    <?php for ($i = 1; $i <= $pages; $i++) {?>
+        <a href="?page=<?php print($i);?>"><?php print($i); ?></a>
+    <?php } ?>
+
+    <?php if ($page < $pages) {?>
+        <a href="?page=<?php print($page + 1);?>">></a>
+    <?php } ?>
 </div>

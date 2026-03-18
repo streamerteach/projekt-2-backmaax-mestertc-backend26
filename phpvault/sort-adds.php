@@ -9,7 +9,5 @@ $data = $stmt->fetch();
 $mygender = $data['gender'];
 $mypreference = $data['preference'];
 
-$sql = "SELECT * FROM profiles WHERE preference = ? AND gender = ?";
-$stmt = $conn->prepare($sql);
-$stmt->execute([$mygender, $mypreference]);
-$baseset = $stmt->fetch();
+$baseset = "SELECT * FROM profiles WHERE preference = ? AND gender = ?";
+
