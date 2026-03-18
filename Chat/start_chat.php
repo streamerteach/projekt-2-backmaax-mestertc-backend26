@@ -2,7 +2,7 @@
 
 include "../phpvault/Methods.php";
 $user = $_SESSION['userid'];
-$user2 = $_POST['user2'];
+$user2 = $profile['id'];
 
 $sql = "SELECT chats.id
         FROM chats 
