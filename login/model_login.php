@@ -5,7 +5,7 @@ if (! empty($_REQUEST['password'])) {
     $username = $_REQUEST['username'];
     $password = $_REQUEST['password'];
 
-    $sql = "SELECT id, username, passhash FROM profiles WHERE username = ?";
+    $sql = "SELECT id, username,image_path, passhash FROM profiles WHERE username = ?";
     $stmt = $conn -> prepare($sql);
     
     if($stmt ->execute([$username])){
@@ -15,6 +15,7 @@ if (! empty($_REQUEST['password'])) {
             print("<p> Logging in </p>");
             $_SESSION['userid'] = $user['id'];
             $_SESSION['username'] = $user['username'];
+            $_SESSION['path'] = $user['image_path'];
             header("Refresh:2; url=../home/");
         }
         else{

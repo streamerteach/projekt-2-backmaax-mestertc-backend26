@@ -222,4 +222,39 @@ footer {
     margin:5px 0;
 }
 
+.profile-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
 
+/* Current PFP */
+.current-pfp img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Grid for old images */
+.old-pfp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+}
+
+/* Old images */
+.old-pfp-grid img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.old-pfp-grid img:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
