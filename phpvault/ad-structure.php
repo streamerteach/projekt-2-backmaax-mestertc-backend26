@@ -11,7 +11,7 @@
             print("<img src=\"../Fileupload/Profilepictures/dennis.jpg\" alt=\"".$profile['realname']."\" style=\"width:100%\">");
             print("<h1>".$profile['realname']."</h1>");
             print("<p class=\"title\">".$profile['bio']."</p>");
-            print("<p><button>Contact</button></p>");
+            print("<p><button onclick='startChat(".$profile['id'].")'>Contact</button></p>");
             print("</div>");
         }
     } else {
