@@ -18,10 +18,11 @@ if(!empty($_REQUEST['form'])){
     
     if (!empty($username) and !empty($firstname) and !empty($gender) and !empty($lastname) and !empty($email) 
         and !empty($zipcode) and !empty($salary) and !empty($preference) and !empty($bio) and !empty($pwd)) {
-        $sql = "INSERT INTO `profiles` (`id`, `username`, `realname`, `gender`, `zipcode`, `bio`, `salary`, `preference`, `email`, `likes`, `role`, `passhash`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $path = makeProfileDir($username);
+        $sql = "INSERT INTO `profiles` (`id`, `username`, `realname`, `gender`, `zipcode`, `bio`, `salary`, `preference`, `email`, `likes`, `role`, `image_path`, `passhash`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->execute([$username, "$firstname $lastname", $gender, $zipcode, $bio, $salary, $preference, $email, 0, 1, password_hash($pwd, PASSWORD_DEFAULT)]);
-        print("<p>Your account was successfully created, we've sent your<br>randomly generated password to the given e-mail address!</p>");
+        $stmt->execute([$username, "$firstname $lastname", $gender, $zipcode, $bio, $salary, $preference, $email, 0, 1, $path, password_hash($pwd, PASSWORD_DEFAULT)]);
+        //print("<p>Your account was successfully created, we've sent your<br>randomly generated password to the given e-mail address!</p>");
     } else {
         print("<p id=\"incorrect\">Something went wrong! Please check that all fields above have been filled!</p>");
     }  
@@ -42,4 +43,16 @@ function mail_pwd($username,$pwd,$email){
     mail($email, "Thank you for registering",$msg );
     return( $msg);   //for testing
 }
+
+
+function makeProfileDir($username){
+    $rnd = generate_rand_pwd(5);
+    $username = $username.$rnd;
+    $path = "../Fileupload/$username";
+    mkdir($path);
+    mkdir("$path/current");
+    mkdir("$path/old");
+    return $path;
+}
+
 ?>
