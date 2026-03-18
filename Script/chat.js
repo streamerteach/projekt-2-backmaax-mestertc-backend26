@@ -1,24 +1,27 @@
 
-let currentChatId = "1";
+let currentChatId = "0";
 
 function startChat(recieverId){
-    fetch(start_chat.php,{
+    console.log("started chat");
+    fetch("../Chat/start_chat.php",{
         method:"POST",
         headers: {"Content-Type": "application/x-www-form-urlencoded"},
         body: "targetId="+ recieverId
     })
     .then(res => res.text())
     .then(chatId => {openChat(chatId);});
+    
 }
 
 function openChat(chatId){
+    console.log("opening chat")
     currentChatId = chatId;
     document.getElementById("chatBox").style.display ="block";
     loadMessages();
 }
 
 function sendMessage(){
-
+    console.log("sending message")
     let msg = document.getElementById("msgInput").value;
     if (!msg) return;
 
@@ -28,11 +31,13 @@ function sendMessage(){
         body: `chat_id=${currentChatId}&message=${encodeURIComponent(msg)}`
     }).then(()=>{
         document.getElementById("msgInput").value= "";
+        console.log("message sent");
         loadMessages();
     });
 }
 
 function loadMessages() {
+    console.log("loading messages");
     fetch("../Chat/get_messages.php?chat_id="+ currentChatId)
     .then(res => res.text())
     .then(data => {
