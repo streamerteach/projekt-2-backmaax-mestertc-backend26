@@ -10,7 +10,7 @@ if ($total == 1) {
     $sql = "UPDATE profiles SET role = 0 WHERE username = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$usr]);
-    print("$usr was successfully given admin rights!");
+    print("<p>$usr was successfully given admin rights!</p>");
 } else {
-    print("There is no such user!");
+    print("<p>There is no such user!</p>");
 }
