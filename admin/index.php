@@ -15,18 +15,22 @@
             </div>
             <div class="admin-content">
                 <form method="POST">
-                    <button type="submit" name="adminButton" value="rights">Grand Admin rights</button>
+                    <button type="submit" name="adminButton" value="rights">Grant Admin rights</button>
                 </form>
             </div>
         </div>
         
         <?php if (isset($_POST['adminButton']) and $_POST['adminButton'] == "ban") {
             include "banform.php";
-        } else if ($_POST['adminbutton'] == "right") {
+        } else if (isset($_POST['adminButton']) and $_POST['adminButton'] == "rights") {
             include "rightsform.php";
         }?>
 
-        <?php if ()
+        <?php if (isset($_POST['banbutton'])){
+            include "ban.php";
+        } else if (isset($_POST['rightsbutton'])) {
+            include "admin.php";
+        }?>
     </section>
 </body>
 </html>
