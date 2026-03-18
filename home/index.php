@@ -37,9 +37,11 @@
             include "../phpvault/ad-structure.php";
         }
         ?>
+        
         <div id="chatSidebar">
             <h3>Your Chats</h3>
         </div>
+       
         <div id="chatPopup">
             <div id="chatHeader">Chat <span style="float:right;cursor:pointer;" onclick="closeChat()">X</span></div>
             <div id="chatMessages"></div>
