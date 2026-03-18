@@ -1,4 +1,4 @@
-
+<?php include "likes.php"?>
 <?php include "sort-adds.php"?>
 
 <div id="addfield">
@@ -7,11 +7,30 @@
     if (!empty($baseset)) {
         include "pagination.php";
         foreach ($profiles as $profile) {
+
+            if (!isset($_SESSION['liked']) || !is_array($_SESSION['liked'])) {
+                $_SESSION['liked'][$profile['id']] = false;
+            }
+
+            print($_SESSION['liked'][$profile['id']]);
+
+            if (isset($_POST['likeButton']) and !$_SESSION['liked'][$profile['id']]) {
+                AddLike($profile['id'], $conn);
+            }
+
             print("<div class=\"adds\">");
             print("<img src=\"../Fileupload/Profilepictures/dennis.jpg\" alt=\"".$profile['realname']."\" style=\"width:100%\">");
             print("<h1>".$profile['realname']."</h1>");
             print("<p class=\"title\">".$profile['bio']."</p>");
             print("<p><button>Contact</button></p>");
+            print("<form method=\"POST\">");
+
+            if (!isset($_POST['likeButton'])) {
+                print("<p><button type=\"submit\" name=\"likeButton\">Like</button></p>");
+            }
+            print("</form>");
+
+            print("<p>".$profile['realname']." has been liked ".$profile['likes']." times!</p>");
             print("</div>");
         }
     } else {
