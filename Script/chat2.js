@@ -66,7 +66,7 @@ function openChat(chatId) {
 }
 
 // ---------------- Auto refresh ----------------
-//setInterval(()=>{loadMessages();loadChatList();}, 2000);
+setInterval(()=>{loadMessages();loadChatList();}, 2000);
 
 // ---------------- Initial load ----------------
 loadChatList();
