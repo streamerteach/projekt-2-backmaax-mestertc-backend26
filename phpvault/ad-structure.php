@@ -1,26 +1,29 @@
+<?php include "pagination.php"?>
 <?php include "sort-adds.php"?>
-    
 
 <div id="addfield">
-    
-    <div class="adds" id="add-1">
-        <img src="../Fileupload/Profilepictures/dennis.jpg" alt="John" style="width:100%">
-        <h1>John Doe</h1>
-        <p class="title">CEO & Founder, Example</p>
-        <p>Harvard University</p>
-        <p><button onclick="startChat(<?=$target?>)">Contact</button></p>
-    </div>
-    <div class="adds" id="add-2">
-        <a class="add"><img></a>
-    </div>
-    <div class="adds" id="add-3">
-        <a class="add"><img></a>
-    </div>
+
+    <?php
+    if (!empty($baseset)) {
+        include "pagination.php";
+        foreach ($profiles as $profile) {
+            print("<div class=\"adds\">");
+            print("<img src=\"../Fileupload/Profilepictures/dennis.jpg\" alt=\"".$profile['realname']."\" style=\"width:100%\">");
+            print("<h1>".$profile['realname']."</h1>");
+            print("<p class=\"title\">".$profile['bio']."</p>");
+            print("<p><button>Contact</button></p>");
+            print("</div>");
+        }
+    } else {
+        print("<h1>There seems to be no matches for you!</h1>");
+    }
+    ?>
     
     
 </div>
 <div id="page-turner">
-    <div class="turner-element"><img></div>
-    <div class="turner-element" id="page-number"></div>
-    <div class="turner-element"><img></div>
+    <button class="turner-element"><</button>
+    <div id="page-number">
+    </div>
+    <button class="turner-element">></button>
 </div>

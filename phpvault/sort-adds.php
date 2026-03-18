@@ -1,9 +1,15 @@
 <?php
 $usr = $_SESSION['username'];
 
-$mygender = "SELECT gender FROM profiles WHERE username = $usr";
-$mypreference = "SELECT preference FROM profiles WHERE username = $usr";
+$sql = "SELECT gender, preference FROM profiles WHERE username = ?";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$usr]);
+$data = $stmt->fetch();
 
-$baseset = "SELECT * FROM profiles WHERE preference = $mygender AND gender = $mypreference";
+$mygender = $data['gender'];
+$mypreference = $data['preference'];
 
-?>
+$sql = "SELECT * FROM profiles WHERE preference = ? AND gender = ?";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$mygender, $mypreference]);
+$baseset = $stmt->fetch();
