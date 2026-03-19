@@ -1,6 +1,6 @@
 html {
     margin: 0;
-    height: auto;
+    height: 100%;
     display: flex;
 }
 
@@ -10,7 +10,7 @@ body {
     margin: auto;
     background-color: #fff;
     width: 75%;
-    height: auto;
+    height: 100%;
 }
 
 #logo {
@@ -75,7 +75,7 @@ h3 {
 #addfield {
     display: flex;
     flex-direction: row;
-    height: auto;
+    height: 100%;
     width: 100%;
     background-color: #fd6ae5;
 }
